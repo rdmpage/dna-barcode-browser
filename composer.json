@@ -1,0 +1,10 @@
+{
+    "name": "rpage/dna-barcode-browser",
+    "authors": [
+        {
+            "name": "Roderic Page",
+            "email": "rdmpage@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+		<title>
+			DNA Barcode Browser
+		</title>
+		<style>
+			body {
+				padding:0px;
+				margin:0px;		
+				font-family: 'Open Sans', sans-serif;
+				color: rgb(52, 52, 52);
+				font-size:14px;
+				overflow:hidden; /* stop any scrolling of whole browser contents */
+			}
+			
+			h3 {
+				border-top: 1px solid rgb(192, 192, 192);
+			}
+				
+			.content {
+				display:flex;
+			}
+			
+			/* https://stackoverflow.com/a/10636287/9684 */
+			textarea {
+			     width: 100%;
+			     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+			     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+			     box-sizing: border-box;         /* Opera/IE 8+ */
+			     
+			     border:none;
+			}		
+				
+			/* left column */
+			.left_column {
+				width:320px;
+				height:100vh;
+				background-color:rgb(228,228,228);
+				overflow-y:auto;
+				padding-left:1em;
+				padding-right:1em;
+			}
+				
+			/* right column */
+			.right_column {
+				width:calc(100vw - 300px);
+				height:100vh;
+				background-color:white;
+				border-left:1px solid rgb(228,228,228);
+				overflow-y:auto;	
+				padding-left:1em;
+				padding-right:1em;
+			}
+			
+					/* see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details */
+					details {
+				border: 1px solid rgb(192,192,192);
+				 border-radius: 2px; 
+				/ * padding: .5em .5em 0;
+				margin-bottom: .5em;  */
+					
+				background-color:white;
+					}
+				
+					summary {
+				/* font-weight: bold; */
+				padding: .5em;
+					background:white;
+				outline-style: none; /* hide the outline that appears when user clicks on summary */
+					}
+				
+					details[open] summary {
+				border-bottom: 1px solid rgb(228,228,228);
+					}	
+					
+				.small_map {
+			width:100%;
+			height:300px;
+				}
+			
+				.big_map {
+			width:100%;
+			height:400px;
+			border-bottom: 1px solid rgb(228,228,228);
+				}		
+				
+			.mydivicon{
+			width: 12px
+			height: 12px;
+			border-radius: 10px;
+			background: #408000; 
+			border: 1px solid #fff;
+			opacity: 0.85
+				}	
+				
+				
+				.widget{
+				 border: 1px solid rgb(192,192,192);
+				 border-radius: 2px; 
+				background-color:white;
+				}
+			
+				.result {
+			line-height: 40px;
+			background:white;
+			border-bottom:1px solid rgb(228,228,228);
+				}
+				
+				
+			
+				.result img {
+				float:right;
+				vertical-align:middle;
+				
+				/* dimensions should be the same as lineheight */
+				height: 40px;
+			  	width: 40px;
+			  	object-fit: cover;
+				object-position: 50% 50%;
+			
+			}
+			
+				#phylogeny {
+					width:100%;
+					height:400px;
+					background-color:yellow;
+					border:1px solid rgb(192,192,192);
+				}
+			
+		</style>
+<!-- jquery -->
+		<script src="js/jquery.js">
+		</script>
+		<script src="js/jquery-svgpan.js">
+		</script>
+<!-- leaflet -->
+		<link rel="stylesheet" href="vendor/leaflet-0.7.3/leaflet.css" /> <link rel="stylesheet" href="vendor/leaflet.draw/leaflet.draw.css" /> 
+		<script src="vendor/leaflet-0.7.3/leaflet.js" type="text/javascript">
+		</script>
+		<script src="vendor/leaflet.draw/leaflet.draw.js" type="text/javascript">
+		</script>
+<!-- maps -->
+		<script src="js/maps.js" type="text/javascript">
+		</script>
+		<script src="js/treelib.js">
+		</script>
+		<script>
+			var geo_filter = null;
+				
+				
+			//--------------------------------------------------------------------------------
+			function do_geo_search(geo) {
+				geo_filter = geo;
+				
+				console.log(JSON.stringify(geo_filter, null, 2));			
+			}
+			
+			//--------------------------------------------------------------------------------
+			function do_blast_search(seq) {
+				geo_filter = null;
+				
+				console.log(JSON.stringify(seq, null, 2));			
+			}					
+			
+				
+		</script>
+	</head>
+	<body onload="$(window).resize();">
+<!-- two columns -->
+		<div class="content" ">
+<!-- left column -->
+			<div class="left_column">
+				<div>
+					<img src="images/noun_DNA_84895.svg" height="48"> 
+				</div>
+<!-- text search -->
+				<details open>
+					<summary>
+						DNA search
+						
+						<button onclick="do_blast_search()">Search</button>
+					</summary>
+<!-- div to ensure textarea expands -->
+					<div style="width:100%;">
+						<textarea rows="10" placeholder="DNA sequence"></textarea> 
+					</div>
+				</details>
+<!-- small map for searching -->
+				<details open>
+					<summary>
+						Geographic search
+					</summary>
+					<div class="small_map" id="smallmap">
+					</div>
+				</details>
+<!-- tags-->
+<!-- results-->
+				<div class="widget">
+				&nbsp;
+				</div>
+			</div>
+<!-- right column -->
+			<div class="right_column">
+				<h1>
+					DNA Barcode Browser
+				</h1>
+<!-- tree -->
+				<h3>
+					Phylogeny
+				</h3>
+				<div id="phylogeny">
+<!-- svg goes here -->
+					<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" height="400" width="1000">
+						<g id="viewport">
+						</g>
+					</svg>
+<!--
+			<div>
+				<span>Download tree</span> <span>Download distances</span> <span>Download distances</span>
+			</div>
+			-->
+				</div>
+					<p />
+<!-- map -->
+					<h3>
+						Map
+					</h3>
+					<div id="map" class="big_map">
+					</div>
+					
+						<p />
+			</div>
+		</div>
+		<script>
+			/* initialise */
+			create_small_map();
+			create_map();
+		</script>
+		<script>
+			/* handle user resizing browser */
+			/* http://stackoverflow.com/questions/6762564/setting-div-width-according-to-the-screen-size-of-user */
+			$(window).resize(function() { 
+				var width = $("#phylogeny").width();
+				document.getElementById("svg").setAttribute("width", width);
+			});	
+		</script>
+	</body>
+</html>
