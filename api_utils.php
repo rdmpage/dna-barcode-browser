@@ -77,31 +77,35 @@ function api_output($obj, $callback = '', $format='json', $status = 400)
 			break;
 	}
 	
-	header("Content-type: text/plain");
-	header("Cache-control: max-age=3600");
 	
-	if ($callback != '')
-	{
-		echo $callback . '(';
-	}
+	//header("Cache-control: max-age=3600");
+	
 	switch ($format)
 	{
-		case 'json':
+		case 'json':		
+			header("Content-type: text/plain");
+			if ($callback != '')
+			{
+				echo $callback . '(';
+			}
 			echo json_encode($obj, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);		
+			if ($callback != '')
+			{
+				echo ')';
+			}
+			break;
+			
+		case 'nexus':
+			// https://github.com/eligrey/FileSaver.js/wiki/Saving-a-remote-file#using-http-header
+			header("Content-type: application/octet-stream");
+			header("Content-Disposition: attachment; filename=\"distances.nexus\"; filename*=\"distances.nex\"");
+			echo $obj;		
 			break;
 			
 		default:
 			echo $obj;
 			break;
 	}
-	if ($callback != '')
-	{
-		echo ')';
-	}
 }
-
-
-
-
 
 ?>
