@@ -163,6 +163,9 @@
 		
 		<script src="js/treelib.js">
 		</script>
+		<script src="js/midpoint.js">
+		</script>
+		
 		<script src="js/build.js">
 		</script>
 		<script src="js/phylo.js">
@@ -352,15 +355,18 @@ ACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT
 					</div>
 				</details>
 				<!-- tags-->
+				
 				<!-- results-->
 				<div class="widget">
 					<div id="hits">&nbsp;</div>
 				</div>
 				
-				<!-- results-->
+				<!-- debug-->
+				<!-- 
 				<div class="widget">
 				<div id="debug">&nbsp;</div>
 				</div>
+				-->
 				
 				
 			</div>
@@ -379,6 +385,9 @@ ACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT
 				</div>
 				
 			<div>
+				<!-- stats -->
+				<div id="tree_stats"></div>			
+			
 				<!-- button to download distance matrix -->
 				<form id="download_distances" action="api.php">
 					<input hidden name="format" value="nexus">
@@ -388,8 +397,8 @@ ACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT
 					<input id="download_distances_button" type="submit" value="Download distances" />
 				</form>
 				
-				<span style="display:none" id="newick"></span>
-				
+				<!-- button to copy tree -->
+				<span style="display:none" id="newick"></span>				
 				<button id="copy_tree" onclick="copy_tree()">Tree as text</button>
 				
 			</div>

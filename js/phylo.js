@@ -359,6 +359,107 @@ function clear_tree(element_id) {
 }
 
 //----------------------------------------------------------------------------------------
+
+function midpoint_root(t) {
+
+	var outgroup = null;
+	var ingroup_edge = 0.0;
+	var outgroup_edge = 0.0;
+
+	var counter = 0;
+	var leaf_list = [];
+	var n = new NodeIterator(t.root);
+	var q = n.Begin();
+	while (q != null)
+	{
+		if (q.IsLeaf())
+		{
+			leaf_list[counter++] = q;
+		}
+		q = n.Next();
+	}
+
+	// get max pairwise distance
+	var max_pairwise = 0.0;
+	var from = -1;
+	var to = -1;
+
+	for (var i = 1; i < counter; i++) {
+		for (var j = 0; j < i; j++) {
+			var p = leaf_list[i];
+			var q = leaf_list[j];
+		
+			t.MarkPath(p);
+		
+			var sum = 0.0;
+			while (q && !q.marked) {
+				sum += q.edge_length;
+				q = q.ancestor;
+			}
+		
+			while (p != q) {
+				sum += p.edge_length;
+				p = p.ancestor;
+			}
+		
+			t.UnMarkPath(leaf_list[i]);
+		
+			if (sum > max_pairwise) {
+				from = leaf_list[i];
+				to = leaf_list[j];
+				max_pairwise = sum;
+			}
+		}
+	}	
+
+	console.log("max_pairwise=" + max_pairwise + "[" + from.label + "," + to.label + "]");
+
+	// where to split?
+	var half = max_pairwise/2.0;
+
+	outgroup = null;
+	var path = 0.0;
+
+	var path2 = 0.0;
+
+	while ((path < half) && from) {
+		path2 = path;
+		path += from.edge_length;
+		outgroup = from;
+		from = from.ancestor;
+	}
+
+
+	if (path < half) {
+		path = 0.0;
+		path2 = 0.0;
+		while ((path < half) && to) {
+			path2 = path;
+			path += to.edge_length;
+			outgroup = to;
+			to = to.ancestor;
+		}
+	}
+
+	{
+		var extra = path - half;
+		outgroup_edge = path - path2 - extra;
+		ingroup_edge = extra;
+	}
+
+	if (outgroup) {
+
+		outgroup.label = 'OUTGROUP';		
+		console.log("outgroup=" + outgroup.label);			
+		console.log('ingroup_edge=' + ingroup_edge + ', outgroup_edge=' + outgroup_edge);		
+		t.ReRoot(outgroup, ingroup_edge, outgroup_edge);		
+		console.log('tree at end=' + t.WriteNewick());
+	}
+	
+	return t;
+}
+
+//----------------------------------------------------------------------------------------
 function showtree(element_id, newick)
 {
     var t = new Tree();
@@ -372,6 +473,8 @@ function showtree(element_id, newick)
 	else
 	{
 		//document.getElementById('message').innerHTML='Parsed OK';
+		
+		t = midpoint_root(t);
 				
 		t.ComputeWeights(t.root);
 		
@@ -563,4 +666,43 @@ function showtree(element_id, newick)
 		// pan
 		//$('svg').svgPan('viewport');
 	}
+}
+
+//----------------------------------------------------------------------------------------
+function showtreeStats(element_id, newick)
+{
+    var t = new Tree();
+    var element = document.getElementById(element_id);
+	t.Parse(newick);
+	
+	var stats = {};
+	stats.length = 0;
+	stats.leaves = 0;
+
+	if (t.error != 0)
+	{
+		//document.getElementById('message').innerHTML='Error parsing tree';
+	}
+	else
+	{
+		
+		var n = new NodeIterator(t.root);
+		var q = n.Begin();
+		while (q != null)
+		{
+			if (q.IsLeaf())
+			{
+				stats.leaves++;
+			}
+			
+			stats.length += q.edge_length;
+			
+			q = n.Next();
+		}
+	}
+	
+	var html = 'Tree length: ' + stats.length;
+	
+	element.innerHTML = html;
+
 }

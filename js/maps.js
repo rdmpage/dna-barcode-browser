@@ -80,14 +80,11 @@ function create_small_map() {
 	smallmap.setView(new L.LatLng(0, 0), 1);
 	smallmap.addLayer(osm);	
 	
-	/* This is where we add custom tiles, e.g. with data points */
-	/*
+	/* This is where we add custom tiles, e.g. with data points */	
 	var dotsAttrib='BOLD';
-	var dots = new L.TileLayer('couchtile.php?x={x}&y={y}&z={z}', 
-		{minZoom: 0, maxZoom: 14, attribution: dotsAttrib});
-		
-	smallmap.addLayer(dots);	
-	*/
+	var dots = new L.TileLayer('tile.php?x={x}&y={y}&z={z}', 
+		{minZoom: 0, maxZoom: 14, attribution: dotsAttrib});		
+	smallmap.addLayer(dots);		
 	
 	drawnItems = new L.FeatureGroup();
 	smallmap.addLayer(drawnItems);

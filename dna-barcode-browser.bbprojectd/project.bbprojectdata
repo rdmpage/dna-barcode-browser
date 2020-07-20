@@ -13,6 +13,7 @@
 		<string>F0B10818-3CBA-45C3-8303-17B7E134212D</string>
 		<string>97451634-DA8E-46AA-8B45-28F932A5DBFB</string>
 		<string>599BFF45-E323-4F88-A4F8-6F3AE00FE79A</string>
+		<string>495DF089-9537-4908-A474-DEA987171998</string>
 		<string>BBE07DFF-B840-4BAA-BA4E-819F0151933D</string>
 		<string>BAF42002-1CBB-4C21-BF19-CDEBB6157307</string>
 		<string>4BEED63B-15E4-4159-85EA-0727E97388AB</string>
@@ -64,6 +65,54 @@
 			<string>api.php</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
+		<key>495DF089-9537-4908-A474-DEA987171998</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va+gCAAAAAAQQMAAAANuppIcdq7s/4+Hqa29RuBQs
+				y/O9UShpBUbiw3myX0U35AEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABMAAAABAQAAZG5hLWJhcmNvZGUt
+				YnJvd3NlcgAIAAAAAQEAAHBpcGVsaW5lFAAAAAEGAAAQ
+				AAAAIAAAADAAAABAAAAAXAAAAAgAAAAEAwAAEGcCAAAA
+				AAAIAAAABAMAAIV0DQAAAAAACAAAAAQDAAAEVkwAAAAA
+				AAgAAAAEAwAANXZpBAMAAAAIAAAABAMAABaadAQDAAAA
+				FAAAAAEGAACIAAAAmAAAAKgAAAC4AAAAyAAAAAgAAAAA
+				BAAAQcJjAQtcQscYAAAAAQIAAAIAAAAAAAAADwAAAAAA
+				AAAAAAAAAAAAAAgAAAAEAwAAAwAAAAAAAAAEAAAAAwMA
+				APUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNp
+				bnRvc2ggSEQIAAAABAMAAADgBANpAAAACAAAAAAEAABB
+				vt1dYgAAACQAAAABAQAAMjVFNDI4NkQtNzEyQy0zODk5
+				LUI0M0YtNUQzRjZBOEJEMTIxGAAAAAECAACBAAAAAQAA
+				AO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAA
+				AQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAAAGwAAAAA
+				AAAABRAAANgAAAAAAAAAEBAAAAQBAAAAAAAAQBAAAPQA
+				AAAAAAAAAiAAANABAAAAAAAABSAAAEABAAAAAAAAECAA
+				AFABAAAAAAAAESAAAIQBAAAAAAAAEiAAAGQBAAAAAAAA
+				EyAAAHQBAAAAAAAAICAAALABAAAAAAAAMCAAANwBAAAA
+				AAAAAcAAACQBAAAAAAAAEcAAACAAAAAAAAAAEsAAADQB
+				AAAAAAAAENAAAAQAAAAAAAAA
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/dna-barcode-browser/pipeline/</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./pipeline</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>pipeline</string>
+			<key>ItemType</key>
+			<string>FolderReference</string>
 			<key>UserOverrideItemName</key>
 			<true/>
 		</dict>

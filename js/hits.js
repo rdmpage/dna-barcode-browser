@@ -76,12 +76,27 @@ function hits_as_list(results, element_id)
 	}
 	
 	// simple
+	/*
 	var html = '';
 	html += '<ul>';
 	for (var i in hits) {
 		html += '<li>' + hits[i].label + '</li>';
 	}
 	html += '</ul>';
+	*/
+	
+	var html = '';
+	for (var i in hits) {
+		html += '<div class="result">';		
+		html += hits[i].label;	
+		
+		if (hits[i].image) {
+			html += '<img src="http://exeg5le.cloudimg.io/s/height/40/' + hits[i].image + '">';
+		}
+			
+		html += '</div>';
+	}
+	
 	
 	document.getElementById(element_id).innerHTML = html;
 	

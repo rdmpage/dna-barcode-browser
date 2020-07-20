@@ -94,6 +94,7 @@ $xml = '<?xml version="1.0" encoding="UTF-8"?>
 xmlns="http://www.w3.org/2000/svg" 
 width="256" height="256"
 
+
  >
    <style type="text/css">
       <![CDATA[     
@@ -148,29 +149,16 @@ $geo_filter = new stdclass;
 $geo_filter->geo_bounding_box = new stdclass;
 $geo_filter->geo_bounding_box->{'geometry.coordinates'} = $bounding_box;
 
-$query->query->bool->filter[] = $geo_filter;
+$query->query->bool->filter = $geo_filter;
 
-$path = "Chordata/Actinopterygii/Atheriniformes/Melanotaeniidae/Chilatherina";
+$query->aggs->zoom->geohash_grid->precision = 8;
 
-//$path = "";
-
-if ($path != "")
-{
-	$path_filter = new stdclass;
-	$path_filter->term = new stdclass;
-	$path_filter->term->{'path.tree'} = $path;	
-	$query->query->bool->filter[] = $path_filter;
-}
-
-
-//$query->query->bool->filter->geo_bounding_box->{'geometry.coordinates'} = $bounding_box;
-$query->aggs->zoom->geohash_grid->precision = $zoom;
-
-
+//echo json_encode($query);
 
 $response =	$elastic->send('POST',  '_search', json_encode($query));					
 
 //echo $response;
+
 $response_obj = json_decode($response);
 
 
@@ -213,8 +201,6 @@ foreach ($response_obj->hits->hits as $hit)
 	$xml .= ' stroke="rgb(38,38,38)"'; // Canadensys
 	$xml .= '/>';	
 
-	
-	
 
 }
 
