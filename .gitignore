@@ -3,3 +3,13 @@ env.php
 js/.DS_Store
 .DS_Store
 /junk/
+pipeline/images.tsv
+pipeline/meta.xml
+*.sql
+pipeline/ids_view.tsv
+pipeline/occurrences.tsv
+pipeline/sequences.tsv
+pipeline/tmp/dwca/images.tsv
+pipeline/tmp
+pipeline/cache.json
+*.zip
