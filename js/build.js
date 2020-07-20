@@ -193,5 +193,7 @@ function buildtree(results)
 	//console.log(treeNewick);
 	
 	showtree('svg', treeNewick);
+	
+	document.getElementById('newick').innerHTML = treeNewick;
 
 }
