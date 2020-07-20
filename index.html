@@ -50,8 +50,8 @@
 				background-color:white;
 				border-left:1px solid rgb(228,228,228);
 				overflow-y:auto;	
-				padding-left:1em;
-				padding-right:1em;
+				padding-left:2em;
+				padding-right:2em;
 			}
 			
 					/* see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details */
@@ -83,6 +83,7 @@
 				.big_map {
 			width:100%;
 			height:400px;
+			
 			border-bottom: 1px solid rgb(228,228,228);
 				}		
 				
@@ -128,6 +129,18 @@
 					background-color:yellow;
 					border:1px solid rgb(192,192,192);
 				}
+				
+		.button {
+		  background-color: #039;
+		  border: none;
+		  color: white;
+		  padding: 4px 10px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 12px;
+		  border-radius: 4px;
+		}				
 			
 		</style>
 <!-- jquery -->
@@ -144,50 +157,169 @@
 <!-- maps -->
 		<script src="js/maps.js" type="text/javascript">
 		</script>
+	
+		<script src="js/hits.js">
+		</script>
+		
 		<script src="js/treelib.js">
 		</script>
+		<script src="js/build.js">
+		</script>
+		<script src="js/phylo.js">
+		</script>
+		
 		<script>
 			var geo_filter = null;
+			var seq_filter = '';
+			
+			//--------------------------------------------------------------------------------
+			function clear_sequence(element_id) {
+				document.getElementById(element_id).value = "";
+			}
 				
 				
 			//--------------------------------------------------------------------------------
 			function do_geo_search(geo) {
+			
+				// clear stuff
+				clear_big_map_layer(map, geojsonLayer);
+				clear_tree('svg');
+				clear_list('hits');
+				clear_sequence('dna');
+			
+			
 				geo_filter = geo;
+				seq_filter = '';
 				
-				console.log(JSON.stringify(geo_filter, null, 2));			
+				// console.log(JSON.stringify(geo_filter, null, 2));				
+				
+				$.getJSON('api.php?geo=' 
+						+ encodeURI(JSON.stringify(geo))
+						+ '&callback=?',
+					function(data){
+						//console.log(JSON.stringify(data, null, 2));
+					
+						// build tree from hits					
+						buildtree(data);					
+					
+						$('#svg').svgPan('viewport');
+					
+						hits_on_map(data, map);
+						
+						hits_as_list(data, "hits");
+					});								
 			}
 			
 			//--------------------------------------------------------------------------------
-			function do_blast_search(seq) {
+			function do_blast_search() {
+			
+				// clear stuff
+				clear_big_map_layer(map, geojsonLayer);
+				//clear_map_layer(smallmap, drawnItems);
+				clear_small_map_layer();
+				clear_tree('svg');
+				clear_list('hits');
+			
 				geo_filter = null;
+				var seq = $.trim($("#dna").val());
 				
-				console.log(JSON.stringify(seq, null, 2));			
+				seq_filter = seq;
+				
+				$.getJSON('api.php?seq=' 
+						+ encodeURI(seq)
+						+ '&callback=?',
+					function(data){
+						//console.log(JSON.stringify(data, null, 2));
+					
+						// build tree from hits					
+						buildtree(data);					
+					
+						$('#svg').svgPan('viewport');
+					
+						hits_on_map(data, map);
+						
+						hits_as_list(data, "hits");
+					});					
 			}					
+			
+			//--------------------------------------------------------------------------------
+			function do_download_distances() {
+				var parameters = '';
+				
+				parameters = 'geo=';
+				if (geo_filter) {
+					parameters += encodeURI(JSON.stringify(geo_filter));
+				}
+				parameters += '&seq=';
+				if (seq_filter != '') {
+					parameters += encodeURI(seq_filter);
+				}
+				
+				$.getJSON('api.php?' 
+						+ parameters
+						+ '&format=nexus',
+						+ '&callback=?',
+					function(data){
+					
+						alert('hi');
+						/*
+						const a = document.createElement('a');
+						a.style.display = 'none';
+						a.href = "http://www.goggle.com";
+						// the filename you want
+						//a.download = 'data.nex';
+						document.body.appendChild(a);
+						a.click();
+						*/
+						
+						
+						
+					});	
+								
+			}					
+			
 			
 				
 		</script>
+		
+		<script>
+		$(document).ready(function() {
+			$('#dna_search').attr('disabled', true);
+
+			$('#dna').on('keyup',function() {
+				var textarea_value = $.trim($("#dna").val());
+				var text_value = $.trim($('#dna').val());
+
+				if(textarea_value != '' && text_value != '') {
+					$('#dna_search').attr('disabled', false);
+				} else {
+					$('#dna_search').attr('disabled', true);
+				}
+			});
+		});		
+		</script>				
+		
 	</head>
 	<body onload="$(window).resize();">
-<!-- two columns -->
+		<!-- two columns -->
 		<div class="content" ">
-<!-- left column -->
+			<!-- left column -->
 			<div class="left_column">
 				<div>
 					<img src="images/noun_DNA_84895.svg" height="48"> 
 				</div>
-<!-- text search -->
+				<!-- text search -->
 				<details open>
 					<summary>
-						DNA search
-						
-						<button onclick="do_blast_search()">Search</button>
+						DNA search												
 					</summary>
-<!-- div to ensure textarea expands -->
-					<div style="width:100%;">
-						<textarea rows="10" placeholder="DNA sequence"></textarea> 
+					<!-- div to ensure textarea expands -->
+					<div style="width:100%;background-color:white;padding-bottom:8px;text-align:center;">
+						<textarea id="dna" style="border:1px solid rgb(192,192,192);" rows="10" placeholder="DNA sequence"></textarea> 
+						<button id="dna_search" onclick="do_blast_search()">Search</button>
 					</div>
 				</details>
-<!-- small map for searching -->
+				<!-- small map for searching -->
 				<details open>
 					<summary>
 						Geographic search
@@ -195,33 +327,42 @@
 					<div class="small_map" id="smallmap">
 					</div>
 				</details>
-<!-- tags-->
-<!-- results-->
+				<!-- tags-->
+				<!-- results-->
 				<div class="widget">
-				&nbsp;
+					<div id="hits">&nbsp;</div>
 				</div>
+				
+				<!-- results-->
+				<div class="widget">
+				<div id="debug">&nbsp;</div>
+				</div>
+				
+				
 			</div>
-<!-- right column -->
+			<!-- right column -->
 			<div class="right_column">
 				<h1>
 					DNA Barcode Browser
 				</h1>
-<!-- tree -->
+				<!-- tree -->
 				<h3>
 					Phylogeny
 				</h3>
 				<div id="phylogeny">
-<!-- svg goes here -->
+					<!-- svg goes here -->
 					<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" height="400" width="1000">
 						<g id="viewport">
 						</g>
 					</svg>
-<!--
-			<div>
-				<span>Download tree</span> <span>Download distances</span> <span>Download distances</span>
-			</div>
-			-->
 				</div>
+				
+			<div>
+				<button onclick="do_download_distances()">Download distances</button> <button>Download tree</button>
+				
+			</div>
+				
+				
 					<p />
 <!-- map -->
 					<h3>
@@ -246,5 +387,8 @@
 				document.getElementById("svg").setAttribute("width", width);
 			});	
 		</script>
+		
+
+		
 	</body>
 </html>

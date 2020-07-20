@@ -4,7 +4,8 @@
 <dict>
 	<key>HierarchyData</key>
 	<array>
-		<string>184A4618-C197-4CAA-9D5E-815DFCAF955B</string>
+		<string>9FB35F0D-9BCC-4839-B930-10A9D842CE47</string>
+		<string>57BF6CFC-1890-4BB2-BF35-FAEADE0DC60C</string>
 		<string>1B8E062F-DE60-4B52-A6DF-B61467F4FC16</string>
 		<string>CD6FD820-0AD5-47EF-A16A-F0C75E0DB2A2</string>
 		<string>BF2DCA6E-D65E-4684-AC1D-F5F769AF3F27</string>
@@ -18,54 +19,6 @@
 	</array>
 	<key>ProjectItems</key>
 	<dict>
-		<key>184A4618-C197-4CAA-9D5E-815DFCAF955B</key>
-		<dict>
-			<key>ItemData</key>
-			<dict>
-				<key>BookmarkData</key>
-				<data>
-				Ym9va/ACAAAAAAQQMAAAACjsxwj1bgSNBmFQVIZTaFmE
-				EHQPA7Z2kw4oL5sQwV6G7AEAAAQAAAADAwAAAAgAKAUA
-				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
-				AAEBAABTaXRlcwAAABMAAAABAQAAZG5hLWJhcmNvZGUt
-				YnJvd3NlcgANAAAAAQEAAGFwaV91dGlscy5waHAAAAAU
-				AAAAAQYAABAAAAAgAAAAMAAAAEAAAABcAAAACAAAAAQD
-				AAAQZwIAAAAAAAgAAAAEAwAAhXQNAAAAAAAIAAAABAMA
-				AARWTAAAAAAACAAAAAQDAAA1dmkEAwAAAAgAAAAEAwAA
-				2nhpBAMAAAAUAAAAAQYAAJAAAACgAAAAsAAAAMAAAADQ
-				AAAACAAAAAAEAABBv6DI3wAAABgAAAABAgAAAQAAAAAA
-				AAAPAAAAAAAAAAAAAAAAAAAACAAAAAQDAAADAAAAAAAA
-				AAQAAAADAwAA9QEAAAgAAAABCQAAZmlsZTovLy8MAAAA
-				AQEAAE1hY2ludG9zaCBIRAgAAAAEAwAAAOAEA2kAAAAI
-				AAAAAAQAAEG+3V1iAAAAJAAAAAEBAAAyNUU0Mjg2RC03
-				MTJDLTM4OTktQjQzRi01RDNGNkE4QkQxMjEYAAAAAQIA
-				AIEAAAABAAAA7xMAAAEAAAAAAAAAAAAAAAEAAAABAQAA
-				LwAAAAAAAAABBQAAzAAAAP7///8BAAAAAAAAABAAAAAE
-				EAAAdAAAAAAAAAAFEAAA4AAAAAAAAAAQEAAADAEAAAAA
-				AABAEAAA/AAAAAAAAAACIAAA2AEAAAAAAAAFIAAASAEA
-				AAAAAAAQIAAAWAEAAAAAAAARIAAAjAEAAAAAAAASIAAA
-				bAEAAAAAAAATIAAAfAEAAAAAAAAgIAAAuAEAAAAAAAAw
-				IAAA5AEAAAAAAAABwAAALAEAAAAAAAARwAAAIAAAAAAA
-				AAASwAAAPAEAAAAAAAAQ0AAABAAAAAAAAAA=
-				</data>
-				<key>FileURL</key>
-				<string>file:///Users/rpage/Sites/dna-barcode-browser/api_utils.php</string>
-				<key>HasSecurityScope</key>
-				<true/>
-				<key>RelativePath</key>
-				<string>./api_utils.php</string>
-				<key>TypeID</key>
-				<string>_CFileLocator</string>
-				<key>Version</key>
-				<integer>1</integer>
-			</dict>
-			<key>ItemName</key>
-			<string>api_utils.php</string>
-			<key>ItemType</key>
-			<string>FileReference</string>
-			<key>UserOverrideItemName</key>
-			<true/>
-		</dict>
 		<key>1B8E062F-DE60-4B52-A6DF-B61467F4FC16</key>
 		<dict>
 			<key>ItemData</key>
@@ -210,6 +163,54 @@
 			<key>UserOverrideItemName</key>
 			<true/>
 		</dict>
+		<key>57BF6CFC-1890-4BB2-BF35-FAEADE0DC60C</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va/ACAAAAAAQQMAAAACjsxwj1bgSNBmFQVIZTaFmE
+				EHQPA7Z2kw4oL5sQwV6G7AEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABMAAAABAQAAZG5hLWJhcmNvZGUt
+				YnJvd3NlcgANAAAAAQEAAGFwaV91dGlscy5waHAAAAAU
+				AAAAAQYAABAAAAAgAAAAMAAAAEAAAABcAAAACAAAAAQD
+				AAAQZwIAAAAAAAgAAAAEAwAAhXQNAAAAAAAIAAAABAMA
+				AARWTAAAAAAACAAAAAQDAAA1dmkEAwAAAAgAAAAEAwAA
+				2nhpBAMAAAAUAAAAAQYAAJAAAACgAAAAsAAAAMAAAADQ
+				AAAACAAAAAAEAABBv6DI3wAAABgAAAABAgAAAQAAAAAA
+				AAAPAAAAAAAAAAAAAAAAAAAACAAAAAQDAAADAAAAAAAA
+				AAQAAAADAwAA9QEAAAgAAAABCQAAZmlsZTovLy8MAAAA
+				AQEAAE1hY2ludG9zaCBIRAgAAAAEAwAAAOAEA2kAAAAI
+				AAAAAAQAAEG+3V1iAAAAJAAAAAEBAAAyNUU0Mjg2RC03
+				MTJDLTM4OTktQjQzRi01RDNGNkE4QkQxMjEYAAAAAQIA
+				AIEAAAABAAAA7xMAAAEAAAAAAAAAAAAAAAEAAAABAQAA
+				LwAAAAAAAAABBQAAzAAAAP7///8BAAAAAAAAABAAAAAE
+				EAAAdAAAAAAAAAAFEAAA4AAAAAAAAAAQEAAADAEAAAAA
+				AABAEAAA/AAAAAAAAAACIAAA2AEAAAAAAAAFIAAASAEA
+				AAAAAAAQIAAAWAEAAAAAAAARIAAAjAEAAAAAAAASIAAA
+				bAEAAAAAAAATIAAAfAEAAAAAAAAgIAAAuAEAAAAAAAAw
+				IAAA5AEAAAAAAAABwAAALAEAAAAAAAARwAAAIAAAAAAA
+				AAASwAAAPAEAAAAAAAAQ0AAABAAAAAAAAAA=
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/dna-barcode-browser/api_utils.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./api_utils.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>api_utils.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
 		<key>599BFF45-E323-4F88-A4F8-6F3AE00FE79A</key>
 		<dict>
 			<key>ItemData</key>
@@ -303,6 +304,56 @@
 			</dict>
 			<key>ItemName</key>
 			<string>index.html</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
+		<key>9FB35F0D-9BCC-4839-B930-10A9D842CE47</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9vaygDAAAAAAQQMAAAAPx397p1wteZ9+iMjC2cb5lT
+				bbhEG0LRs2wEYKmSXNSfGAIAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABMAAAABAQAAZG5hLWJhcmNvZGUt
+				YnJvd3NlcgAKAAAAAQEAAC5naXRpZ25vcmUAABQAAAAB
+				BgAAEAAAACAAAAAwAAAAQAAAAFwAAAAIAAAABAMAABBn
+				AgAAAAAACAAAAAQDAACFdA0AAAAAAAgAAAAEAwAABFZM
+				AAAAAAAIAAAABAMAADV2aQQDAAAACAAAAAQDAADEd2kE
+				AwAAABQAAAABBgAAjAAAAJwAAACsAAAAvAAAAMwAAAAI
+				AAAAAAQAAEHCYGSoRZQJGAAAAAECAAABAAAAAAAAAA8A
+				AAAAAAAAAAAAAAAAAAAIAAAABAMAAAMAAAAAAAAABAAA
+				AAMDAAD1AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAA
+				TWFjaW50b3NoIEhECAAAAAQDAAAA4AQDaQAAAAgAAAAA
+				BAAAQb7dXWIAAAAkAAAAAQEAADI1RTQyODZELTcxMkMt
+				Mzg5OS1CNDNGLTVEM0Y2QThCRDEyMRgAAAABAgAAgQAA
+				AAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAvAAAA
+				AAAAAAEFAAAaAAAAAQEAAE5TVVJMRG9jdW1lbnRJZGVu
+				dGlmaWVyS2V5AAAEAAAAAwMAAORcAQDYAAAA/v///wEA
+				AAAAAAAAEQAAAAQQAABwAAAAAAAAAAUQAADcAAAAAAAA
+				ABAQAAAIAQAAAAAAAEAQAAD4AAAAAAAAAAIgAADUAQAA
+				AAAAAAUgAABEAQAAAAAAABAgAABUAQAAAAAAABEgAACI
+				AQAAAAAAABIgAABoAQAAAAAAABMgAAB4AQAAAAAAACAg
+				AAC0AQAAAAAAADAgAADgAQAAAAAAAAHAAAAoAQAAAAAA
+				ABHAAAAgAAAAAAAAABLAAAA4AQAAAAAAABDQAAAEAAAA
+				AAAAAOgBAIAMAgAAAAAAAA==
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/dna-barcode-browser/.gitignore</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./.gitignore</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>.gitignore</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
 			<key>UserOverrideItemName</key>

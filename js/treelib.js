@@ -78,7 +78,7 @@ function drawRotatedText(svg_id, p, string, angle, align)
 	text.setAttribute('x', p['x']);
 	text.setAttribute('y', p['y']);
 	
-	text.setAttribute('onclick', 'alert("hi")');
+	//text.setAttribute('onclick', do_node_click(string));
 	
 	switch (align)
 	{

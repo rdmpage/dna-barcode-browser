@@ -2,6 +2,7 @@
 
 var map, smallmap;
 var geojsonLayer = null;
+var drawnItems = null;
 
 
 
@@ -56,11 +57,13 @@ function create_map() {
 	map.addLayer(osm);	
 		
 	/* This is where we add custom tiles, e.g. with data points */
+	/*
 	var dotsAttrib='RDMP';
 	var dots = new L.TileLayer('tile.php?x={x}&y={y}&z={z}', 
 		{minZoom: 0, maxZoom: 14, attribution: dotsAttrib});
 		
 	map.addLayer(dots);	
+	*/
 	
 }
 
@@ -86,7 +89,7 @@ function create_small_map() {
 	smallmap.addLayer(dots);	
 	*/
 	
-	var drawnItems = new L.FeatureGroup();
+	drawnItems = new L.FeatureGroup();
 	smallmap.addLayer(drawnItems);
 
 	var drawControl = new L.Control.Draw({
@@ -138,12 +141,22 @@ function create_small_map() {
 
 
 //--------------------------------------------------------------------------------
-// Clear data from large map
-function clear_map(map) {
-	if (geojsonLayer) {
-		map.removeLayer(geojsonLayer);
+// Clear data from  map
+function clear_big_map_layer(mymap,layer) {
+	if (layer) {
+		mymap.removeLayer(layer);
 	}
-}	
+}
+
+//--------------------------------------------------------------------------------
+// Clear data from small map
+function clear_small_map_layer() {
+	drawnItems.eachLayer(
+        function(l){
+            drawnItems.removeLayer(l);
+    });
+}
+
 
 //--------------------------------------------------------------------------------
 // Add data to large map

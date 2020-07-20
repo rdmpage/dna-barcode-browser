@@ -371,7 +371,7 @@ function main()
 	// Submit job
 	if (!$handled)
 	{
-		if (isset($_GET['geo']))
+		if (isset($_GET['geo']) && ($_GET['geo'] != ''))
 		{	
 			$geo = $_GET['geo'];
 			
@@ -393,7 +393,7 @@ function main()
 	
 	if (!$handled)
 	{
-		if (isset($_GET['seq']))
+		if (isset($_GET['seq']) && ($_GET['seq'] != ''))
 		{	
 			$seq = $_GET['seq'];
 			
