@@ -63,7 +63,7 @@ while (!feof($file_handle))
 
 		}	
 		
-		print_r($obj);	
+		//print_r($obj);	
 		
 		if (isset($obj->id))
 		{
@@ -76,6 +76,8 @@ while (!feof($file_handle))
 			//print_r($elastic_doc);
 		
 			$elastic->send('POST',  '_doc/' . urlencode($elastic_doc->doc->id). '/_update', json_encode($elastic_doc));					
+			
+			echo "\n\n";
 		}		
 		
 
