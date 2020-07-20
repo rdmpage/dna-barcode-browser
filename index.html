@@ -126,8 +126,8 @@
 				#phylogeny {
 					width:100%;
 					height:400px;
-					background-color:yellow;
-					border:1px solid rgb(192,192,192);
+					/* background-color:yellow;
+					border:1px solid rgb(192,192,192); */
 				}
 				
 		.button {
@@ -191,6 +191,11 @@
 				geo_filter = geo;
 				seq_filter = '';
 				
+				// update download buttons
+				document.getElementById('distances_seq').value = "";
+				document.getElementById('distances_geo').value = JSON.stringify(geo_filter);
+				
+				
 				// console.log(JSON.stringify(geo_filter, null, 2));				
 				
 				$.getJSON('api.php?geo=' 
@@ -203,6 +208,9 @@
 						buildtree(data);					
 					
 						$('#svg').svgPan('viewport');
+						
+						$('#download_distances_button').attr('disabled', false);
+						$('#copy_tree').attr('disabled', false);
 					
 						hits_on_map(data, map);
 						
@@ -215,7 +223,6 @@
 			
 				// clear stuff
 				clear_big_map_layer(map, geojsonLayer);
-				//clear_map_layer(smallmap, drawnItems);
 				clear_small_map_layer();
 				clear_tree('svg');
 				clear_list('hits');
@@ -224,6 +231,11 @@
 				var seq = $.trim($("#dna").val());
 				
 				seq_filter = seq;
+				
+				// update download buttons
+				document.getElementById('distances_seq').value = seq;
+				document.getElementById('distances_geo').value = "";
+
 				
 				$.getJSON('api.php?seq=' 
 						+ encodeURI(seq)
@@ -235,6 +247,11 @@
 						buildtree(data);					
 					
 						$('#svg').svgPan('viewport');
+						
+
+						$('#download_distances_button').attr('disabled', false);
+						$('#copy_tree').attr('disabled', false);
+						
 					
 						hits_on_map(data, map);
 						
@@ -243,40 +260,30 @@
 			}					
 			
 			//--------------------------------------------------------------------------------
-			function do_download_distances() {
-				var parameters = '';
-				
-				parameters = 'geo=';
-				if (geo_filter) {
-					parameters += encodeURI(JSON.stringify(geo_filter));
-				}
-				parameters += '&seq=';
-				if (seq_filter != '') {
-					parameters += encodeURI(seq_filter);
-				}
-				
-				$.getJSON('api.php?' 
-						+ parameters
-						+ '&format=nexus',
-						+ '&callback=?',
-					function(data){
-					
-						alert('hi');
-						/*
-						const a = document.createElement('a');
-						a.style.display = 'none';
-						a.href = "http://www.goggle.com";
-						// the filename you want
-						//a.download = 'data.nex';
-						document.body.appendChild(a);
-						a.click();
-						*/
-						
-						
-						
-					});	
-								
-			}					
+			// https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+			
+			function copy_tree() {
+			
+			/*
+			  // Get the text field 
+			  var copyText = document.getElementById("newick");
+			  
+
+			  //Select the text field 
+			  copyText.select(); 
+			  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+			  /// Copy the text inside the text field 
+			  document.execCommand("copy");
+
+			  // Alert the copied text 
+			  alert("Copied the text: " + copyText.value);
+			  */
+			  
+			  var copyText = document.getElementById("newick").innerHTML;
+			  
+			  alert(copyText);
+			}						
 			
 			
 				
@@ -284,7 +291,10 @@
 		
 		<script>
 		$(document).ready(function() {
-			$('#dna_search').attr('disabled', true);
+			//$('#dna_search').attr('disabled', true);
+			
+			$('#download_distances_button').attr('disabled', true);
+			$('#copy_tree').attr('disabled', true);
 
 			$('#dna').on('keyup',function() {
 				var textarea_value = $.trim($("#dna").val());
@@ -306,7 +316,11 @@
 			<!-- left column -->
 			<div class="left_column">
 				<div>
-					<img src="images/noun_DNA_84895.svg" height="48"> 
+					<img style="vertical-align:middle;" src="images/noun_DNA_84895.svg" height="48"> 
+					<b>
+					DNA Barcode Browser
+					</b>
+
 				</div>
 				<!-- text search -->
 				<details open>
@@ -315,7 +329,17 @@
 					</summary>
 					<!-- div to ensure textarea expands -->
 					<div style="width:100%;background-color:white;padding-bottom:8px;text-align:center;">
-						<textarea id="dna" style="border:1px solid rgb(192,192,192);" rows="10" placeholder="DNA sequence"></textarea> 
+						<textarea id="dna" style="border:1px solid rgb(192,192,192);" rows="10" placeholder="DNA sequence">
+CCTTCTAATTCGAGCTGAACTAAGCCAGCCAGGCTCTCTCCTAGGAGACGACCAAATCTATAATGTAATC
+GTAACAGCGCATGCTTTCGTAATAATTTTCTTTATAGTGATGCCCATTATGATTGGAGGCTTCGGGAACT
+GACTAATTCCTCTGATAATTGGAGCCCCTGATATAGCATTCCCGCGTATGAACAATATAAGCTTCTGGCT
+GCTACCTCCTTCATTCCTCCTCCTACTTGCATCCTCGGGAGTAGAAGCGGGGGCCGGGACAGGCTGAACA
+GTCTACCCCCCTCTAGCTGGAAACTTGGCCCATGCAGGTGCATCCGTTGACCTCACCATTTTCTCCCTTC
+ATCTGGCGGGAATTTCCTCAATTCTTGGCGCTATTAATTTCATCACAACAATTATTAACATAAAACCCCC
+AGCAATTTCACAATACCAAACACCTCTATTTGTCTGAGCAGTCCTAATTACTGCAGTCCTTCTTCTCCTA
+TCCCTCCCTGTATTAGCTGCAGGAATCACAATACTCCTAACAGACCGAAACTTAAATACCACCTTCTTCG
+ACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT
+						</textarea> 
 						<button id="dna_search" onclick="do_blast_search()">Search</button>
 					</div>
 				</details>
@@ -342,9 +366,6 @@
 			</div>
 			<!-- right column -->
 			<div class="right_column">
-				<h1>
-					DNA Barcode Browser
-				</h1>
 				<!-- tree -->
 				<h3>
 					Phylogeny
@@ -358,7 +379,18 @@
 				</div>
 				
 			<div>
-				<button onclick="do_download_distances()">Download distances</button> <button>Download tree</button>
+				<!-- button to download distance matrix -->
+				<form id="download_distances" action="api.php">
+					<input hidden name="format" value="nexus">
+					<input hidden id="distances_seq" name="seq" value="">
+					<input hidden id="distances_geo" name="geo" value="">	
+									
+					<input id="download_distances_button" type="submit" value="Download distances" />
+				</form>
+				
+				<span style="display:none" id="newick"></span>
+				
+				<button id="copy_tree" onclick="copy_tree()">Tree as text</button>
 				
 			</div>
 				
