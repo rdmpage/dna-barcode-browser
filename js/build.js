@@ -199,6 +199,6 @@ function buildtree(results)
 	showtree('svg', treeNewick);
 	showtreeStats('tree_stats', treeNewick);
 	
-	document.getElementById('newick').innerHTML = treeNewick;
+	document.getElementById('newick').setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent( treeNewick ));
 
 }

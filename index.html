@@ -39,8 +39,8 @@
 				height:100vh;
 				background-color:rgb(228,228,228);
 				overflow-y:auto;
-				padding-left:0em;
-				padding-right:0em;
+				padding-left:1em;
+				padding-right:1em;
 			}
 				
 			/* right column */
@@ -300,7 +300,8 @@
 						
 						$('#download_fasta_button').attr('disabled', false);
 						$('#download_distances_button').attr('disabled', false);
-						$('#copy_tree').attr('disabled', false);
+						//$('#copy_tree').attr('disabled', false);
+						$('#download_tree').attr('disabled', false);
 					
 						hits_on_map(data, map);
 						
@@ -342,7 +343,8 @@
 						
 						$('#download_fasta_button').attr('disabled', false);
 						$('#download_distances_button').attr('disabled', false);
-						$('#copy_tree').attr('disabled', false);
+						//$('#copy_tree').attr('disabled', false);
+						$('#download_tree').attr('disabled', false);
 						
 					
 						hits_on_map(data, map);
@@ -357,7 +359,7 @@
 			function copy_tree() {
 			
 			/*
-			  // Get the text field 
+			  // Get the text field (this needs text to be in an input field so we can select it)
 			  var copyText = document.getElementById("newick");
 			  
 
@@ -387,7 +389,8 @@
 			
 			$('#download_fasta_button').attr('disabled', true);
 			$('#download_distances_button').attr('disabled', true);
-			$('#copy_tree').attr('disabled', true);
+			//$('#copy_tree').attr('disabled', true);
+			$('#download_tree').attr('disabled', true);
 
 			$('#dna').on('keyup',function() {
 				var textarea_value = $.trim($("#dna").val());
@@ -499,8 +502,14 @@ ACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT
 				</form>
 				
 				<!-- button to copy tree -->
+				<!--
 				<span style="display:none" id="newick"></span>				
 				<button id="copy_tree" onclick="copy_tree()">Tree as text</button>
+				-->
+				
+					<!--  https://www.bennadel.com/blog/3456-exploring-plain-text-data-uris-and-the-anchor-download-attribute-in-javascript.htm -->
+					<a id="newick" href="" download="tree.tre"><button type="button" id="download_tree">Download tree</button></a>
+				
 				
 			</div>
 				
