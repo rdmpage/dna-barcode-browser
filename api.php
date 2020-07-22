@@ -268,6 +268,38 @@ END;
 	return $nexus;
 }
 
+//----------------------------------------------------------------------------------------
+function elastic_to_fasta($response_obj)
+{
+	$fasta = '';
+	
+	foreach ($response_obj->hits->hits as $hit)
+	{
+		$label_parts = array();
+		
+		$label_parts[] = $hit->_id;
+		
+		if (isset($hit->_source->taxonID))
+		{
+			$label_parts[] = $hit->_source->taxonID;
+		}
+		
+		if (isset($hit->_source->scientificName))
+		{
+			$label_parts[] = $hit->_source->scientificName;
+		}
+		
+		$label = join("|", $label_parts);
+	
+		$seq = chunk_split($hit->_source->consensusSequence, 60, "\n");
+		
+		$fasta .= ">$label\n";
+		$fasta .= "$seq\n";
+	}
+	
+	return $fasta;
+}
+
 
 	
 //-----------------------------------------------------------------------------------------
@@ -310,6 +342,10 @@ function display_geo ($geojson, $format = 'json', $callback = '')
 	{
 		$obj = elastic_to_nexus($obj);
 	}
+	if ($format == 'fasta')
+	{
+		$obj = elastic_to_fasta($obj);
+	}
 		
 	api_output($obj, $callback, $format, $status);
 }	
@@ -343,6 +379,10 @@ function display_blast ($sequence, $format = 'json', $callback = '')
 	{
 		$obj = elastic_to_nexus($obj);
 	}
+	if ($format == 'fasta')
+	{
+		$obj = elastic_to_fasta($obj);
+	}	
 		
 	api_output($obj, $callback, $format, $status);
 }	

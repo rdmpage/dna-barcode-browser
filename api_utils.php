@@ -95,6 +95,13 @@ function api_output($obj, $callback = '', $format='json', $status = 400)
 			}
 			break;
 			
+		case 'fasta':
+			// https://github.com/eligrey/FileSaver.js/wiki/Saving-a-remote-file#using-http-header
+			header("Content-type: application/octet-stream");
+			header("Content-Disposition: attachment; filename=\"sequences.fasta\"; filename*=\"sequences.fasta\"");
+			echo $obj;		
+			break;
+		
 		case 'nexus':
 			// https://github.com/eligrey/FileSaver.js/wiki/Saving-a-remote-file#using-http-header
 			header("Content-type: application/octet-stream");
