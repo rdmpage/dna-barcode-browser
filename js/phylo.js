@@ -701,7 +701,7 @@ function showtreeStats(element_id, newick)
 		}
 	}
 	
-	var html = 'Tree length: ' + stats.length;
+	var html = 'Tree length: ' + stats.length.toFixed(2);
 	
 	element.innerHTML = html;
 
