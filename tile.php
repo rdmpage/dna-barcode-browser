@@ -110,7 +110,7 @@ if (0)
 	$xml .= '<rect id="border" x="0" y="0" width="256" height="256" style="stroke-width:1;fill:none;stroke:rgb(192,192,192);" />';			
 }
 	 
-$marker_size = 10;
+$marker_size = 4;
 $marker_shape = 'circle';
 //$marker_shape = 'square';
 
