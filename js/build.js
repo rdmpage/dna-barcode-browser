@@ -80,6 +80,10 @@ function compute_distances (hits) {
 		}
 
 		var seq = hits[i]._source.consensusSequence;
+		
+		// clean sequence
+		seq = seq.replace(/[-RYN]/ig, '');
+		
 		var len = seq.length;
 	
 		for (var j = 0; j < len - 5; j++)
