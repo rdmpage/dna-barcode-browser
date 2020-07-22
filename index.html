@@ -39,8 +39,8 @@
 				height:100vh;
 				background-color:rgb(228,228,228);
 				overflow-y:auto;
-				padding-left:1em;
-				padding-right:1em;
+				padding-left:0em;
+				padding-right:0em;
 			}
 				
 			/* right column */
@@ -140,7 +140,88 @@
 		  display: inline-block;
 		  font-size: 12px;
 		  border-radius: 4px;
-		}				
+		}			
+		
+/* tree */
+/* https://two-wrongs.com/draw-a-tree-structure-with-only-css */
+
+.tree {
+	/* border: 1px solid rgb(192,192,192); */
+	width:290px;
+	
+}
+
+.tree, .tree ul, .tree li {
+     position: relative;
+     font-size: 12px; /* size of font to use */
+     font-family:sans-serif;
+   /* overflow: auto; *//* https://stackoverflow.com/a/26150238/9684 */
+}
+
+.tree ul {
+    list-style: none;
+    
+    /* how much left padding we want on each element (determines vertical spacing in the tree.
+       Note that we this value + the negative
+       padding of .tree li::before, .tree li::after must be at least equal to zero 
+       or the tree will overflow the left margin of the bounding div.
+       
+    */
+    padding-left: 8px; 
+}
+
+.tree li::before, .tree li::after {
+    content: "";
+    position: absolute;
+    left: -8px; /* see note above */
+}
+
+/* horizontal line leading to node label */
+.tree li::before {
+    border-top: 1px solid #999;
+    top: 9px; /* half the line height */
+    /* this should be less than the .tree ul padding-left value otherwise horizontal line
+       collides with node label */
+    width: 8px; 
+    height: 0px;
+}
+.tree li::after {
+	/* vertical line below node to its children, negative so gets close to text label */
+    border-left: 1px solid #999;
+    height: 100%;
+    width: 0px;
+    /* this value + li:last-child::after height = line-height */
+    top: -6px;
+}
+
+.tree ul > li:last-child::after {
+	/* height of vertical line to last child, truncate so it joins the horizontal line */
+    height: 16px; /* .tree li::after top + height = .tree li line-height */
+}
+
+/* rdmp */
+.tree li  {
+	line-height: 18px;
+	/*border: 1px solid red;*/
+	/*background-color:rgba(0,0,0, 0.1);*/
+}
+
+.tree li .leaf {
+	/*background-color:rgb(242,242,242);*/
+}
+
+.tree li img {
+	float:right;
+	vertical-align:middle;
+	/*border: 1px solid rgb(192,192,192);*/
+	
+	/* dimensions should be the same as lineheight */
+	height: 18px;
+  	width: 18px;
+  	object-fit: cover;
+	object-position: 50% 50%;
+
+}			
 			
 		</style>
 <!-- jquery -->
@@ -158,13 +239,15 @@
 		<script src="js/maps.js" type="text/javascript">
 		</script>
 	
-		<script src="js/hits.js">
-		</script>
 		
 		<script src="js/treelib.js">
 		</script>
 		<script src="js/midpoint.js">
 		</script>
+		
+		<script src="js/hits.js">
+		</script>
+		
 		
 		<script src="js/build.js">
 		</script>
@@ -195,6 +278,8 @@
 				seq_filter = '';
 				
 				// update download buttons
+				document.getElementById('fasta_seq').value = "";
+				document.getElementById('fasta_geo').value = JSON.stringify(geo_filter);
 				document.getElementById('distances_seq').value = "";
 				document.getElementById('distances_geo').value = JSON.stringify(geo_filter);
 				
@@ -212,6 +297,7 @@
 					
 						$('#svg').svgPan('viewport');
 						
+						$('#download_fasta_button').attr('disabled', false);
 						$('#download_distances_button').attr('disabled', false);
 						$('#copy_tree').attr('disabled', false);
 					
@@ -236,6 +322,8 @@
 				seq_filter = seq;
 				
 				// update download buttons
+				document.getElementById('fasta_seq').value = seq;
+				document.getElementById('fasta_geo').value = "";
 				document.getElementById('distances_seq').value = seq;
 				document.getElementById('distances_geo').value = "";
 
@@ -251,7 +339,7 @@
 					
 						$('#svg').svgPan('viewport');
 						
-
+						$('#download_fasta_button').attr('disabled', false);
 						$('#download_distances_button').attr('disabled', false);
 						$('#copy_tree').attr('disabled', false);
 						
@@ -296,6 +384,7 @@
 		$(document).ready(function() {
 			//$('#dna_search').attr('disabled', true);
 			
+			$('#download_fasta_button').attr('disabled', true);
 			$('#download_distances_button').attr('disabled', true);
 			$('#copy_tree').attr('disabled', true);
 
@@ -343,6 +432,7 @@ AGCAATTTCACAATACCAAACACCTCTATTTGTCTGAGCAGTCCTAATTACTGCAGTCCTTCTTCTCCTA
 TCCCTCCCTGTATTAGCTGCAGGAATCACAATACTCCTAACAGACCGAAACTTAAATACCACCTTCTTCG
 ACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT
 						</textarea> 
+						<button onclick="$('#dna').val('CCTTCTAATTCGAGCTGAACTAAGCCAGCCAGGCTCTCTCCTAGGAGACGACCAAATCTATAATGTAATCGTAACAGCGCATGCTTTCGTAATAATTTTCTTTATAGTGATGCCCATTATGATTGGAGGCTTCGGGAACTGACTAATTCCTCTGATAATTGGAGCCCCTGATATAGCATTCCCGCGTATGAACAATATAAGCTTCTGGCTGCTACCTCCTTCATTCCTCCTCCTACTTGCATCCTCGGGAGTAGAAGCGGGGGCCGGGACAGGCTGAACAGTCTACCCCCCTCTAGCTGGAAACTTGGCCCATGCAGGTGCATCCGTTGACCTCACCATTTTCTCCCTTCATCTGGCGGGAATTTCCTCAATTCTTGGCGCTATTAATTTCATCACAACAATTATTAACATAAAACCCCCAGCAATTTCACAATACCAAACACCTCTATTTGTCTGAGCAGTCCTAATTACTGCAGTCCTTCTTCTCCTATCCCTCCCTGTATTAGCTGCAGGAATCACAATACTCCTAACAGACCGAAACTTAAATACCACCTTCTTCGACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT');">Example</button>
 						<button id="dna_search" onclick="do_blast_search()">Search</button>
 					</div>
 				</details>
@@ -386,7 +476,17 @@ ACCCCGCAGGGGGAGGGGATCCCATTCTATACCAACACCTTT
 				
 			<div>
 				<!-- stats -->
-				<div id="tree_stats"></div>			
+				<div id="tree_stats"></div>	
+				
+				<!-- button to download sequences -->
+				<form id="download_fasta" action="api.php">
+					<input hidden name="format" value="fasta">
+					<input hidden id="fasta_seq" name="seq" value="">
+					<input hidden id="fasta_geo" name="geo" value="">	
+									
+					<input id="download_fasta_button" type="submit" value="Download sequences" />
+				</form>
+						
 			
 				<!-- button to download distance matrix -->
 				<form id="download_distances" action="api.php">
