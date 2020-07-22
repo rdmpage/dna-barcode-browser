@@ -8,8 +8,8 @@
 	<string>{
   "mappings": {
     "properties": {
-      "geometry": {
-        "type": "geo_shape"
+      "geometry.coordinates": {
+        "type": "geo_point"
       },
       "consensusSequence": {
         "type": "text",

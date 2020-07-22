@@ -13,3 +13,6 @@ pipeline/tmp/dwca/images.tsv
 pipeline/tmp
 pipeline/cache.json
 *.zip
+cloud/Create.request
+cloud/Delete.request
+cloud/Update index settings.request

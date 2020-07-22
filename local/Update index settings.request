@@ -3,39 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>http://localhost:32769/dna</string>
-	<key>bodyString</key>
-	<string>{
-  "mappings": {
-    "properties": {
-      "geometry": {
-        "type": "geo_shape"
-      },
-      "consensusSequence": {
-        "type": "text",
-        "analyzer": "my_ngram_analyzer"
-      }
-    }
-  },
-  "settings": {
-    "analysis": {
-      "analyzer": {
-        "my_ngram_analyzer": {
-          "tokenizer": "my_ngram_tokenizer"
-        }
-      },
-      "tokenizer": {
-        "my_ngram_tokenizer": {
-          "type": "nGram",
-          "min_gram": "5",
-          "max_gram": "5",
-          "token_chars": ["letter", "digit"]
-        }
-      }
-    }
-  }
-}
-</string>
+	<string>http://localhost:32769/dna/_settings</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>
@@ -52,7 +20,7 @@
 		</dict>
 	</array>
 	<key>httpMethod</key>
-	<string>PUT</string>
+	<string>GET</string>
 	<key>jsonpScript</key>
 	<string></string>
 	<key>paramBodyUIChoice</key>
@@ -72,6 +40,6 @@
 	<key>username</key>
 	<string>user</string>
 	<key>usingHTTPBody</key>
-	<true/>
+	<false/>
 </dict>
 </plist>
