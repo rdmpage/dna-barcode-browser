@@ -28,7 +28,7 @@ Details on the methods used to search for sequences and create the tree are give
 
 Link to visuals: include introductory video or screencast (max 5 min.), screenshots, presentation, poster, infographics etc. Good visuals demonstrate and describe the submission, its features and its benefits. *
 
-[to do]
+There is a screencast at https://youtu.be/jjXuWfofMPg
 
 Link(s) to source location: direct the jury to your online submission's website or repository. *
 

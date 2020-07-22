@@ -2,6 +2,12 @@
 
 Interactive web app to explore DNA barcode data sourced from DwCA files. 
 
+![image](https://raw.githubusercontent.com/rdmpage/dna-barcode-browser/master/images/screenshot.png)
+
+App: [https://dna-barcode-browser.herokuapp.com](https://dna-barcode-browser.herokuapp.com)
+
+Screencast: [https://www.youtube.com/watch?v=jjXuWfofMPg](https://www.youtube.com/watch?v=jjXuWfofMPg)
+
 ## Background
 
 The goal of this app is to suggest a possible interface for exploring DNA barcode data in GBIF. As this data becomes more common it raises the issue of how best to display and explore it. Classical occurrence data (a taxonomic name, a locality, a date) can be readily displayed as lists of occurrences, or as dots on a map. Barcode data comes with a DNA sequence that is potentially rich in information that is not made use of in lists or maps. Phylogenetic trees are an obvious visualisation, but computing these can be computationally demanding. For example, given a set of DNA sequences, typically we would construct a multiple sequence alignment, then compute a tree using a sophisticated statistical model of sequence evolution. Searching for similar sequences is also computationally challenging, the default approach is to use existing software such as BLAST to index sequences. 
@@ -142,26 +148,25 @@ To avoid
 
 ## References
 
-Argimón S, Abudahab K, Goater R, Fedosejev A, Bhai J, Glasner C, Feil E, Holden M, Yeats C, 
-Grundmann H, Spratt B, Aanensen D. 30/11/2016. M Gen 2(11): doi:10.1099/mgen.0.000093
+Argimón S, Abudahab K, Goater R, Fedosejev A, Bhai J, Glasner C, Feil E, Holden M, Yeats C, Grundmann H, Spratt B, Aanensen D. 30/11/2016. M Gen 2(11): [doi:10.1099/mgen.0.000093](https://doi.org/10.1099/mgen.0.000093)
 
-Edgar RC. 2004. Local homology recognition and distance measures in linear time using compressed amino acid alphabets. Nucleic Acids Research 32:380–385. DOI: 10.1093/nar/gkh180.
+Edgar RC. 2004. Local homology recognition and distance measures in linear time using compressed amino acid alphabets. Nucleic Acids Research 32:380–385. [DOI: 10.1093/nar/gkh180](https://doi.org/10.1093/nar/gkh180).
 
-Faith DP. 1992. Conservation evaluation and phylogenetic diversity. Biological Conservation 61:1–10. DOI: 10.1016/0006-3207(92)91201-3.
+Faith DP. 1992. Conservation evaluation and phylogenetic diversity. Biological Conservation 61:1–10. [DOI: 10.1016/0006-3207(92)91201-3](https://doi.org/10.1016/0006-3207(92)91201-3).
 
-Hadfield, J., Megill, C., Bell, S. M., Huddleston, J., Potter, B., Callender, C., … Neher, R. A. (2018). Nextstrain: real-time tracking of pathogen evolution. Bioinformatics, 34(23), 4121–4123. doi:10.1093/bioinformatics/bty407
+Hadfield, J., Megill, C., Bell, S. M., Huddleston, J., Potter, B., Callender, C., … Neher, R. A. (2018). Nextstrain: real-time tracking of pathogen evolution. Bioinformatics, 34(23), 4121–4123. [doi:10.1093/bioinformatics/bty407](https://doi.org/10.1093/bioinformatics/bty407)
 
-Hajibabaei M, Singer GA. 2009. Googling DNA sequences on the World Wide Web. BMC Bioinformatics 10:S4. DOI: 10.1186/1471-2105-10-S14-S4.
+Hajibabaei M, Singer GA. 2009. Googling DNA sequences on the World Wide Web. BMC Bioinformatics 10:S4. [DOI: 10.1186/1471-2105-10-S14-S4](https://doi.org/10.1186/1471-2105-10-S14-S4).
 
-Page R. 2015. Visualising Geophylogenies in Web Maps Using GeoJSON. PLOS Currents Tree of Life. DOI: 10.1371/currents.tol.8f3c6526c49b136b98ec28e00b570a1e.
+Page R. 2015. Visualising Geophylogenies in Web Maps Using GeoJSON. PLOS Currents Tree of Life. [DOI: 10.1371/currents.tol.8f3c6526c49b136b98ec28e00b570a1e](https://doi.org/10.1371/currents.tol.8f3c6526c49b136b98ec28e00b570a1e).
 
-Shaun Wilkinson. 2018. shaunpwilkinson/kmer: kmer v1.0.2. Zenodo. DOI: 10.5281/zenodo.1227690.
+Shaun Wilkinson. 2018. shaunpwilkinson/kmer: kmer v1.0.2. Zenodo. [DOI: 10.5281/zenodo.1227690](https://doi.org/10.5281/zenodo.1227690).
 
-Simonsen, M., Mailund, T., & Pedersen, C. N. S. (n.d.). Rapid Neighbour-Joining. Algorithms in Bioinformatics, 113–122. doi:10.1007/978-3-540-87361-7_10
+Simonsen, M., Mailund, T., & Pedersen, C. N. S. (n.d.). Rapid Neighbour-Joining. Algorithms in Bioinformatics, 113–122. [doi:10.1007/978-3-540-87361-7_10](https://doi.org/10.1007/978-3-540-87361-7_10)
 
-Stoeckle MY, Coffran C. 2013. TreeParser-Aided Klee Diagrams Display Taxonomic Clusters in DNA Barcode and Nuclear Gene Datasets. Scientific Reports 3:1–6. DOI: 10.1038/srep02635.
+Stoeckle MY, Coffran C. 2013. TreeParser-Aided Klee Diagrams Display Taxonomic Clusters in DNA Barcode and Nuclear Gene Datasets. Scientific Reports 3:1–6. [DOI: 10.1038/srep02635](https://doi.org/10.1038/srep02635)
 
-Yang, K., & Zhang, L. (2008, January 10). Performance comparison between k-tuple distance and four model-based distances in phylogenetic tree reconstruction. Nucleic Acids Research. Oxford University Press (OUP). https://doi.org/10.1093/nar/gkn075
+Yang, K., & Zhang, L. (2008, January 10). Performance comparison between k-tuple distance and four model-based distances in phylogenetic tree reconstruction. Nucleic Acids Research. Oxford University Press (OUP). [https://doi.org/10.1093/nar/gkn075](https://doi.org/10.1093/nar/gkn075)
 
 
 ## Acknowledgements
