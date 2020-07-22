@@ -166,7 +166,13 @@ Yang, K., & Zhang, L. (2008, January 10). Performance comparison between k-tuple
 
 ## Acknowledgements
 
-Code for neighbour-joining tree comes from https://github.com/biosustain/neighbor-joining.
+- Code for neighbour-joining tree comes from [biosustain/neighbor-joining](https://github.com/biosustain/neighbor-joining).
+- Tree display code is from [treelib-js](https://github.com/rdmpage/treelib-js)
+- SVG zoom uses [jquery-svg-pan-zoom](https://github.com/DanielHoffmann/jquery-svg-pan-zoom) or [ariutta/svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom)
+- Maps displayed using [Leaflet.js](https://leafletjs.com).
+- Data from [BOLD](http://v3.boldsystems.org)
+
+
 
 
 

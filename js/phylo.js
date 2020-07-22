@@ -638,6 +638,7 @@ function showtree(element_id, newick)
 		
 		*/
 				
+		
 		// Scale to fit window
 		var bbox = svg.getBBox();
 		
@@ -660,7 +661,6 @@ function showtree(element_id, newick)
 		{
 			viewport.setAttribute('transform', 'translate(' + -bbox.x + ' ' + -bbox.y + ') scale(' + scale + ')');
 		}
-		
 		
 		
 		// pan
