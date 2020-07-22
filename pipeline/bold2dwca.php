@@ -220,7 +220,7 @@ function write_meta($filename = 'meta.xml')
 
 
 // project 
-if (1)
+if (0)
 {
 	$url = 'http://www.boldsystems.org/index.php/API_Public/combined';
 	
@@ -244,7 +244,7 @@ if (1)
 }
 	
 // taxon 
-if (0)
+if (1)
 {
 	$url = 'http://www.boldsystems.org/index.php/API_Public/combined';
 
@@ -259,7 +259,13 @@ if (0)
 		//'taxon' => 'Camaenidae',
 		//'taxon' => 'Stylommatophora',
 		//'taxon' => 'Heraclides',
-		'taxon' => 'Trachycystis',
+		//'taxon' => 'Trachycystis',
+		
+		//'taxon' => 'Pteropodidae',
+		//'taxon' => 'Chiroptera',
+		
+		'taxon' => 'Molidae',
+		
 		'marker' => 'COI-5P',
 		'format' => 'tsv'
 		);	
