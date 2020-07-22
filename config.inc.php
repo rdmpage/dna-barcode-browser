@@ -46,20 +46,33 @@ if (file_exists(dirname(__FILE__) . '/env.php'))
 }
 
 $config['platform'] = 'local';
-//$config['platform'] = 'cloud';
+$config['platform'] = 'cloud';
 
 if ($config['platform'] == 'local')
 {
 		
 	// Local Docker Elasticsearch version 6.8.0 http://localhost:32772
-	$config['elastic_options'] = array(
-			'protocol' => 'http',
+	$config['elastic_options'] = array(			
 			'index' => 'dna',
 			'protocol' => 'http',
 			'host' => 'localhost',
 			'port' => 32769
 			);
 
+}
+
+if ($config['platform'] == 'cloud')
+{
+
+	// Bitnami
+	$config['elastic_options'] = array(
+			'index' 	=> 'dna',
+			'protocol' 	=> 'http',
+			'host' 		=> getenv('ELASTIC_HOST'),
+			'port' 		=> getenv('ELASTIC_PORT'),
+			//'user' 		=> getenv('ELASTIC_USERNAME'),
+			//'password' 	=> getenv('ELASTIC_PASSWORD'),
+			);
 }
 
 
