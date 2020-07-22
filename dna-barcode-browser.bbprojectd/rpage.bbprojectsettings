@@ -8,12 +8,49 @@
 	<integer>848</integer>
 	<key>ExpandedItems:rpage</key>
 	<array>
-		<string>599BFF45-E323-4F88-A4F8-6F3AE00FE79A</string>
+		<string>4BEED63B-15E4-4159-85EA-0727E97388AB</string>
 	</array>
 	<key>FileFilterMode:rpage</key>
 	<integer>0</integer>
 	<key>OpenDocuments:rpage</key>
 	<array>
+		<dict>
+			<key>BookmarkData</key>
+			<data>
+			Ym9va0gDAAAAAAQQMAAAAAbxTLcM8jdEaC6vkhN17EKngel3OpWe
+			1iC+tOxZ7BYyOAIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
+			AAAFAAAAAQEAAHJwYWdlAAAABQAAAAEBAABTaXRlcwAAABMAAAAB
+			AQAAZG5hLWJhcmNvZGUtYnJvd3NlcgACAAAAAQEAAGpzAAAIAAAA
+			AQEAAGJ1aWxkLmpzGAAAAAEGAAAQAAAAIAAAADAAAABAAAAAXAAA
+			AGgAAAAIAAAABAMAABBnAgAAAAAACAAAAAQDAACFdA0AAAAAAAgA
+			AAAEAwAABFZMAAAAAAAIAAAABAMAADV2aQQDAAAACAAAAAQDAADJ
+			emkEAwAAAAgAAAAEAwAA//JpBAMAAAAYAAAAAQYAAJgAAACoAAAA
+			uAAAAMgAAADYAAAA6AAAAAgAAAAABAAAQb93g94AAAAYAAAAAQIA
+			AAEAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAABAAAAAAA
+			AAAEAAAAAwMAAPUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABN
+			YWNpbnRvc2ggSEQIAAAABAMAAADgBANpAAAACAAAAAAEAABBvt1d
+			YgAAACQAAAABAQAAMjVFNDI4NkQtNzEyQy0zODk5LUI0M0YtNUQz
+			RjZBOEJEMTIxGAAAAAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAA
+			AAABAAAAAQEAAC8AAAAAAAAAAQUAABoAAAABAQAATlNVUkxEb2N1
+			bWVudElkZW50aWZpZXJLZXkAAAQAAAADAwAA5VwBANgAAAD+////
+			AQAAAAAAAAARAAAABBAAAHgAAAAAAAAABRAAAPgAAAAAAAAAEBAA
+			ACgBAAAAAAAAQBAAABgBAAAAAAAAAiAAAPQBAAAAAAAABSAAAGQB
+			AAAAAAAAECAAAHQBAAAAAAAAESAAAKgBAAAAAAAAEiAAAIgBAAAA
+			AAAAEyAAAJgBAAAAAAAAICAAANQBAAAAAAAAMCAAAAACAAAAAAAA
+			AcAAAEgBAAAAAAAAEcAAACAAAAAAAAAAEsAAAFgBAAAAAAAAENAA
+			AAQAAAAAAAAACAIAgCwCAAAAAAAA
+			</data>
+			<key>FileURL</key>
+			<string>file:///Users/rpage/Sites/dna-barcode-browser/js/build.js</string>
+			<key>HasSecurityScope</key>
+			<true/>
+			<key>RelativePath</key>
+			<string>./js/build.js</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>BookmarkData</key>
 			<data>
@@ -374,43 +411,6 @@
 			<true/>
 			<key>RelativePath</key>
 			<string>./pipeline/bold2dwca.php</string>
-			<key>TypeID</key>
-			<string>_CFileLocator</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>BookmarkData</key>
-			<data>
-			Ym9va0gDAAAAAAQQMAAAAAbxTLcM8jdEaC6vkhN17EKngel3OpWe
-			1iC+tOxZ7BYyOAIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
-			AAAFAAAAAQEAAHJwYWdlAAAABQAAAAEBAABTaXRlcwAAABMAAAAB
-			AQAAZG5hLWJhcmNvZGUtYnJvd3NlcgACAAAAAQEAAGpzAAAIAAAA
-			AQEAAGJ1aWxkLmpzGAAAAAEGAAAQAAAAIAAAADAAAABAAAAAXAAA
-			AGgAAAAIAAAABAMAABBnAgAAAAAACAAAAAQDAACFdA0AAAAAAAgA
-			AAAEAwAABFZMAAAAAAAIAAAABAMAADV2aQQDAAAACAAAAAQDAADJ
-			emkEAwAAAAgAAAAEAwAA//JpBAMAAAAYAAAAAQYAAJgAAACoAAAA
-			uAAAAMgAAADYAAAA6AAAAAgAAAAABAAAQb93g94AAAAYAAAAAQIA
-			AAEAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAABAAAAAAA
-			AAAEAAAAAwMAAPUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABN
-			YWNpbnRvc2ggSEQIAAAABAMAAADgBANpAAAACAAAAAAEAABBvt1d
-			YgAAACQAAAABAQAAMjVFNDI4NkQtNzEyQy0zODk5LUI0M0YtNUQz
-			RjZBOEJEMTIxGAAAAAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAA
-			AAABAAAAAQEAAC8AAAAAAAAAAQUAABoAAAABAQAATlNVUkxEb2N1
-			bWVudElkZW50aWZpZXJLZXkAAAQAAAADAwAA5VwBANgAAAD+////
-			AQAAAAAAAAARAAAABBAAAHgAAAAAAAAABRAAAPgAAAAAAAAAEBAA
-			ACgBAAAAAAAAQBAAABgBAAAAAAAAAiAAAPQBAAAAAAAABSAAAGQB
-			AAAAAAAAECAAAHQBAAAAAAAAESAAAKgBAAAAAAAAEiAAAIgBAAAA
-			AAAAEyAAAJgBAAAAAAAAICAAANQBAAAAAAAAMCAAAAACAAAAAAAA
-			AcAAAEgBAAAAAAAAEcAAACAAAAAAAAAAEsAAAFgBAAAAAAAAENAA
-			AAQAAAAAAAAACAIAgCwCAAAAAAAA
-			</data>
-			<key>FileURL</key>
-			<string>file:///Users/rpage/Sites/dna-barcode-browser/js/build.js</string>
-			<key>HasSecurityScope</key>
-			<true/>
-			<key>RelativePath</key>
-			<string>./js/build.js</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -863,7 +863,7 @@
 	<array>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -905,7 +905,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -947,7 +947,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -991,7 +991,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1033,7 +1033,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1077,7 +1077,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1121,7 +1121,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1165,7 +1165,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1209,7 +1209,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1253,7 +1253,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1297,7 +1297,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1338,7 +1338,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1381,7 +1381,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1423,7 +1423,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1465,7 +1465,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2020-07-22T12:25:17Z</date>
+			<date>2020-07-22T13:28:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1517,6 +1517,6 @@
 	<key>ViewSplitterPosition:rpage</key>
 	<real>0.1931493878364563</real>
 	<key>WindowFrame:rpage:displays([(0, 0), (1440, 900)]:[(-1920, 0), (1920, 1080)])</key>
-	<string>rect(82,-1759,915,-708)</string>
+	<string>rect(65,-1848,898,-797)</string>
 </dict>
 </plist>
