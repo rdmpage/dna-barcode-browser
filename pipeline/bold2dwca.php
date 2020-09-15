@@ -244,7 +244,7 @@ if (0)
 }
 	
 // taxon 
-if (1)
+if (0)
 {
 	$url = 'http://www.boldsystems.org/index.php/API_Public/combined';
 
@@ -270,6 +270,21 @@ if (1)
 		'format' => 'tsv'
 		);	
 }
+
+// fungi
+if (1)
+{
+	$url = 'http://www.boldsystems.org/index.php/API_Public/combined';
+
+	$parameters = array(
+		
+		'taxon' => 'Boletales',
+		
+		'marker' => 'ITS',
+		'format' => 'tsv'
+		);	
+}
+
 
 // BIN
 if (0)

@@ -8,6 +8,19 @@ App: [https://dna-barcode-browser.herokuapp.com](https://dna-barcode-browser.her
 
 Screencast: [https://www.youtube.com/watch?v=jjXuWfofMPg](https://www.youtube.com/watch?v=jjXuWfofMPg)
 
+### Notes
+
+Seems that Elasticsearch regularly crashes, taking the index with it :(. Means I need to rebuild the index regularly, need to find out why this is. 
+
+Rebuilds:
+- 2020-09-05
+- 2020-09-11
+- 2020-09-12
+
+#### Meow
+
+OK, it’s a meow attack as the Elasticsearch instance is left open by Bitnami! See https://github.com/rdmpage/dna-barcode-browser/issues/6
+
 ## Background
 
 The goal of this app is to suggest a possible interface for exploring DNA barcode data in GBIF. As this data becomes more common it raises the issue of how best to display and explore it. Classical occurrence data (a taxonomic name, a locality, a date) can be readily displayed as lists of occurrences, or as dots on a map. Barcode data comes with a DNA sequence that is potentially rich in information that is not made use of in lists or maps. Phylogenetic trees are an obvious visualisation, but computing these can be computationally demanding. For example, given a set of DNA sequences, typically we would construct a multiple sequence alignment, then compute a tree using a sophisticated statistical model of sequence evolution. Searching for similar sequences is also computationally challenging, the default approach is to use existing software such as BLAST to index sequences. 

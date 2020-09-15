@@ -68,6 +68,11 @@ while (!feof($file_handle))
 		if (isset($obj->id))
 		{
 		
+			if (isset($obj->path))
+			{
+				unset($obj->path);
+			}
+		
 			// for small cases we can upload this to Elastic directly...
 			$elastic_doc = new stdclass;
 			$elastic_doc->doc = $obj;
@@ -82,7 +87,16 @@ while (!feof($file_handle))
 		
 
 	}	
-	$row_count++;	
+	
+	// Give server a break every 100 items
+	if (($row_count++ % 100) == 0)
+	{
+		$rand = rand(1000000, 3000000);
+		echo "\n-- ...sleeping for " . round(($rand / 1000000),2) . ' seconds' . "\n\n";
+		usleep($rand);
+	}
+	
+	
 	
 }	
 
