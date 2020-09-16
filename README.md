@@ -98,7 +98,7 @@ Remote set up on Bitnami. Note that following [Bitnami’s instructions](https:/
 network.host: Specify the hostname or IP address where the server will be accessible. Set it to 0.0.0.0 to listen on every interface.
 ```
 
-Then we make sure to open the port using the [Google Console](https://docs.bitnami.com/google/faq/administration/use-firewall/).
+Then we make sure to open the port using the [Google Console](https://docs.bitnami.com/google/faq/administration/use-firewall/). For direct connection to Elasricsearch (not recommend) open 9200, for connection via Apache with basic authentication open port 80 (note that this means you will need to add ELASTIC_USERNAME and ELASTIC_PASSWORD to the Heroku Config Vars.
 
 #### Securing Elasticsearch
 
@@ -209,17 +209,19 @@ To upload the data we take the list of unique identifiers, assemble them corresp
 
 We need indices to match sequences, geography, and taxonomic classification.
 
-Need 
-```
-{
-  "index.mapping.total_fields.limit": 10000
-}
-```
-To avoid 
-```
-{"error":{"root_cause":[{"type":"illegal_argument_exception","reason":"Limit of total fields [1000] in index [dna] has been exceeded"}],"type":"illegal_argument_exception","reason":"Limit of total fields [1000] in index [dna] has been exceeded"},"status":400}
-```
+~~Need~~ 
+~~```
+~~~~{
+~~  "~~index.mapping.total_fields.limit": 10000~~
+~~}
+~~~~```
+~~~~To avoid~~ 
+~~```
+~~{"~~error":{"root_cause":[{"type":"illegal_argument_exception","reason":"Limit of total fields [1000] in index [dna] has been exceeded"}],"type":"illegal_argument_exception","reason":"Limit of total fields [1000] in index [dna] has been exceeded"},"status":400~~}
+~~```
+~~
 
+I think this is due to indexing `dynamicProperties` which I’ve now stopped.
 
 ## References
 
