@@ -8,19 +8,6 @@ App: [https://dna-barcode-browser.herokuapp.com](https://dna-barcode-browser.her
 
 Screencast: [https://www.youtube.com/watch?v=jjXuWfofMPg](https://www.youtube.com/watch?v=jjXuWfofMPg)
 
-### Notes
-
-Seems that Elasticsearch regularly crashes, taking the index with it :(. Means I need to rebuild the index regularly, need to find out why this is. 
-
-Rebuilds:
-- 2020-09-05
-- 2020-09-11
-- 2020-09-12
-
-#### Meow
-
-OK, it’s a meow attack as the Elasticsearch instance is left open by Bitnami! See https://github.com/rdmpage/dna-barcode-browser/issues/6
-
 ## Background
 
 The goal of this app is to suggest a possible interface for exploring DNA barcode data in GBIF. As this data becomes more common it raises the issue of how best to display and explore it. Classical occurrence data (a taxonomic name, a locality, a date) can be readily displayed as lists of occurrences, or as dots on a map. Barcode data comes with a DNA sequence that is potentially rich in information that is not made use of in lists or maps. Phylogenetic trees are an obvious visualisation, but computing these can be computationally demanding. For example, given a set of DNA sequences, typically we would construct a multiple sequence alignment, then compute a tree using a sophisticated statistical model of sequence evolution. Searching for similar sequences is also computationally challenging, the default approach is to use existing software such as BLAST to index sequences. 
@@ -68,6 +55,10 @@ The sequences are indexed as *n*-grams where *n* is 5 using the following index 
       "consensusSequence": {
         "type": "text",
         "analyzer": "my_ngram_analyzer"
+      },
+      "dynamicProperties" : {
+        "type": "object",
+        "enabled": false
       }
     }
   },
@@ -89,9 +80,10 @@ The sequences are indexed as *n*-grams where *n* is 5 using the following index 
     }
   }
 }
+
 ```
 
-Note that the DNA barcodes in the `consensusSequence` field are indexed as *n*-grams.
+Note that the DNA barcodes in the `consensusSequence` field are indexed as *n*-grams. We also suppress indexing of the `dynamicProperties` field as this results in too many unique elements for Elasticsearch too index.
 
 To visualise the sequences we compute a phylogenetic tree. This needs to be done “on the fly” so speed is vital. Pairwise distances between the sequences are computed using *k*-mers, these distances are then used compute a neighbour-joining tree using Simonsen et al. “Rapid Neighbour-Joining” algorithm using code [biosustain/neighbor-joining](https://github.com/biosustain/neighbor-joining).
  .
@@ -108,7 +100,77 @@ network.host: Specify the hostname or IP address where the server will be access
 
 Then we make sure to open the port using the [Google Console](https://docs.bitnami.com/google/faq/administration/use-firewall/).
 
+#### Securing Elasticsearch
 
+After releasing this app the Elasticsearch index regularly seemed to disappear, to be replaced with spurious indices. Eventually I discovered that this was a meow attack as the Elasticsearch instance not password protected by default by Bitnami, see https://github.com/rdmpage/dna-barcode-browser/issues/6.
+
+To fix this I followed Bitnami’s instructions [Add Basic Authentication And TLS Using Apache](https://docs.bitnami.com/general/apps/elasticsearch/administration/add-basic-auth-and-tls/), with some slight tweaks.
+
+- To install the Apache web server execute the following commands:
+
+`sudo apt-get install apache2`
+
+- Create a new VirtualHost file
+
+`sudo nano /etc/apache2/sites-available/elasticsearch-http-vhost.conf`
+
+- Add the following content (note that user is called “user”)
+
+```
+<VirtualHost 127.0.0.1:80 _default_:80>
+  ServerAlias *
+  ProxyPass / http://127.0.0.1:9200/
+  ProxyPassReverse / http://127.0.0.1:9200/
+  AllowEncodedSlashes On
+  <Location />
+    AuthType Basic
+    AuthName "Introduce your ElasticSearch creadentials."
+    AuthBasicProvider file
+    AuthUserFile /opt/bitnami/passwd
+    Require user user
+  </Location>
+</VirtualHost>
+```
+
+- Execute the following command to generate the Apache passwords file:
+
+`sudo htpasswd -c /opt/bitnami/passwd user`
+
+- When. Prompted for a password, use the one displayed by Bitnami on the web page for the virtual machine.
+
+- Enable the new created virtual host:
+
+`sudo ln -s /etc/apache2/sites-available/elasticsearch-http-vhost.conf /etc/apache2/sites-enabled/`
+
+- Enable the mod_proxy and mod_proxy_http modules: 
+
+`sudo a2enmod proxy_http`
+
+- Restart the Apache server:
+
+`sudo systemctl restart apache2`
+
+If everything works then `curl -L 127.0.0.1` will return a HTTP 401 error, but `curl -L http://user:password@127.0.0.1/` will return something like:
+
+```
+{
+  "name" : "bitnami-elasticsearch-5754",
+  "cluster_name" : "bnCluster",
+  "cluster_uuid" : "SpESnodpSTeCk4zkziRljQ",
+  "version" : {
+    "number" : "7.9.1",
+    "build_flavor" : "oss",
+    "build_type" : "tar",
+    "build_hash" : "083627f112ba94dffc1232e8b42b73492789ef91",
+    "build_date" : "2020-09-01T21:22:21.964974Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.6.2",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
 
 ## Pipeline for uploading data
 

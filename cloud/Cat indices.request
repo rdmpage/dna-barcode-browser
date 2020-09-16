@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>34.65.95.19:9200/_cat/indices</string>
+	<string>34.65.95.19:80/_cat/indices</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>
@@ -33,6 +33,8 @@
 	<false/>
 	<key>stringEncoding</key>
 	<integer>4</integer>
+	<key>username</key>
+	<string>user</string>
 	<key>usingHTTPBody</key>
 	<false/>
 </dict>

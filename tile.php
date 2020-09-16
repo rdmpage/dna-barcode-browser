@@ -157,8 +157,6 @@ $query->aggs->zoom->geohash_grid->precision = 8;
 
 $response =	$elastic->send('POST',  '_search', json_encode($query));					
 
-//echo $response;
-
 $response_obj = json_decode($response);
 
 

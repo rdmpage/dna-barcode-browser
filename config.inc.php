@@ -70,8 +70,8 @@ if ($config['platform'] == 'cloud')
 			'protocol' 	=> 'http',
 			'host' 		=> getenv('ELASTIC_HOST'),
 			'port' 		=> getenv('ELASTIC_PORT'),
-			//'user' 		=> getenv('ELASTIC_USERNAME'),
-			//'password' 	=> getenv('ELASTIC_PASSWORD'),
+			'user' 		=> getenv('ELASTIC_USERNAME'),
+			'password' 	=> getenv('ELASTIC_PASSWORD'),
 			);
 }
 
