@@ -8,7 +8,7 @@ App: [https://dna-barcode-browser.herokuapp.com](https://dna-barcode-browser.her
 
 Screencast: [https://www.youtube.com/watch?v=jjXuWfofMPg](https://www.youtube.com/watch?v=jjXuWfofMPg)
 
-Manuscript: Short note on the app is in the folder [manuscript](https://github.com/rdmpage/dna-barcode-browser/tree/master/manuscript). This was submitted to [bioRxiv](https://www.biorxiv.org) and rejected(!).
+Manuscript: Short note on the app is in the folder [manuscript](https://github.com/rdmpage/dna-barcode-browser/tree/master/manuscript). This was submitted to [bioRxiv](https://www.biorxiv.org) and rejected(!). Uploaded instead to Zenodo [doi:10.5281/zenodo.4266482](https://doi.org/10.5281/zenodo.4266482)
 
 ## Background
 
