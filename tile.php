@@ -122,7 +122,7 @@ $bounding_box = xyz_to_bounding_box($x, $y, $zoom);
 
 
 $query_json = '{
-	"size": 1000,
+	"size": 10000,
 	"query": {
 		"bool": {
 			"must": {
