@@ -216,6 +216,7 @@ function write_meta($filename = 'meta.xml')
 	file_put_contents($filename, $meta->saveXML());
 }
 
+//----------------------------------------------------------------------------------------
 
 
 
@@ -272,7 +273,7 @@ if (0)
 }
 
 // fungi
-if (1)
+if (0)
 {
 	$url = 'http://www.boldsystems.org/index.php/API_Public/combined';
 
@@ -299,13 +300,14 @@ if (0)
 }
 
 // geo
-if (0)
+if (1)
 {
 	$url = 'http://www.boldsystems.org/index.php/API_Public/combined';
 
 	$parameters = array(
 		//'geo' => 'New Caledonia',
-		'geo' => 'Sulawesi',
+		//'geo' => 'Sulawesi',
+		'geo' => 'India',
 		'marker' => 'COI-5P',
 		'format' => 'tsv'
 		);	
