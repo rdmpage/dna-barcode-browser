@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>34.65.95.19:80/dna/_mapping?pretty</string>
+	<string>34.65.95.19:9200/dna/_search</string>
+	<key>bodyString</key>
+	<string>{"size":10000,"query":{"bool":{"must":{"match_all":{}},"filter":{"geo_bounding_box":{"geometry.coordinates":{"top_left":{"lat":66.51326044311186,"lon":90},"bottom_right":{"lat":0,"lon":180}}}}}},"aggs":{"zoom":{"geohash_grid":{"field":"geometry.coordinates","precision":8}}}}</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>
@@ -20,7 +22,7 @@
 		</dict>
 	</array>
 	<key>httpMethod</key>
-	<string>GET</string>
+	<string>POST</string>
 	<key>jsonpScript</key>
 	<string></string>
 	<key>paramBodyUIChoice</key>
@@ -28,14 +30,18 @@
 	<key>parameters</key>
 	<array/>
 	<key>parametersType</key>
-	<integer>0</integer>
+	<integer>1</integer>
+	<key>password</key>
+	<string>7WbQZedlAvzQ</string>
 	<key>presentBeforeChallenge</key>
-	<false/>
+	<true/>
+	<key>shouldStorePassword</key>
+	<true/>
 	<key>stringEncoding</key>
 	<integer>4</integer>
 	<key>username</key>
 	<string>user</string>
 	<key>usingHTTPBody</key>
-	<false/>
+	<true/>
 </dict>
 </plist>
