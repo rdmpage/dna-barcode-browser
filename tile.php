@@ -110,7 +110,7 @@ if (0)
 	$xml .= '<rect id="border" x="0" y="0" width="256" height="256" style="stroke-width:1;fill:none;stroke:rgb(192,192,192);" />';			
 }
 	 
-$marker_size = 4;
+$marker_size = 6;
 $marker_shape = 'circle';
 //$marker_shape = 'square';
 
@@ -153,7 +153,7 @@ $query->query->bool->filter = $geo_filter;
 
 $query->aggs->zoom->geohash_grid->precision = 8;
 
-//echo json_encode($query);
+// echo json_encode($query);
 
 $response =	$elastic->send('POST',  '_search', json_encode($query));					
 
@@ -194,6 +194,8 @@ foreach ($response_obj->hits->hits as $hit)
 	$fill = 'rgb(208,104,85)'; // Canadensys
 	
 	$xml .= ' fill="'. $fill . '"';
+	
+	//$xml .= ' opacity="0.7"';
 		
 		
 	$xml .= ' stroke="rgb(38,38,38)"'; // Canadensys
