@@ -237,6 +237,8 @@ Hadfield, J., Megill, C., Bell, S. M., Huddleston, J., Potter, B., Callender, C.
 
 Hajibabaei M, Singer GA. 2009. Googling DNA sequences on the World Wide Web. BMC Bioinformatics 10:S4. [DOI: 10.1186/1471-2105-10-S14-S4](https://doi.org/10.1186/1471-2105-10-S14-S4).
 
+Kuksa, P., & Pavlovic, V. (2009). Efficient alignment-free DNA barcode analytics. BMC Bioinformatics, 10(S14). [doi:10.1186/1471-2105-10-s14-s9](https://doi.org/10.1186/1471-2105-10-s14-s9)
+
 Page R. 2015. Visualising Geophylogenies in Web Maps Using GeoJSON. PLOS Currents Tree of Life. [DOI: 10.1371/currents.tol.8f3c6526c49b136b98ec28e00b570a1e](https://doi.org/10.1371/currents.tol.8f3c6526c49b136b98ec28e00b570a1e).
 
 Shaun Wilkinson. 2018. shaunpwilkinson/kmer: kmer v1.0.2. Zenodo. [DOI: 10.5281/zenodo.1227690](https://doi.org/10.5281/zenodo.1227690).
