@@ -46,7 +46,7 @@ if (file_exists(dirname(__FILE__) . '/env.php'))
 }
 
 $config['platform'] = 'local';
-$config['platform'] = 'cloud';
+// $config['platform'] = 'cloud';
 
 if ($config['platform'] == 'local')
 {
@@ -56,7 +56,7 @@ if ($config['platform'] == 'local')
 			'index' => 'dna',
 			'protocol' => 'http',
 			'host' => 'localhost',
-			'port' => 32769
+			'port' => 55001
 			);
 
 }
