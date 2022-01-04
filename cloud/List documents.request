@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>34.65.95.19:9200/dna/_search</string>
+	<string>http://34.65.247.244:80/dna/_search</string>
 	<key>bodyString</key>
 	<string>{
     "query": {

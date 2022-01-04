@@ -17,7 +17,7 @@ switch ($site)
 {
 	case 'heroku':
 		// Server-------------------------------------------------------------------------
-		$config['web_server']	= 'https://xxx.herokuapp.com'; 
+		$config['web_server']	= 'https://dna-barcode-browser.herokuapp.com'; 
 		$config['site_name']	= 'DNA Barcode Browser';
 
 		// Files--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ if (file_exists(dirname(__FILE__) . '/env.php'))
 }
 
 $config['platform'] = 'local';
-// $config['platform'] = 'cloud';
+$config['platform'] = 'cloud';
 
 if ($config['platform'] == 'local')
 {

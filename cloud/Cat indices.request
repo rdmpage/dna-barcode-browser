@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>34.65.95.19:80/_cat/indices</string>
+	<string>http://34.65.247.244:80/_cat/indices</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>
