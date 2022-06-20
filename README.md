@@ -210,7 +210,7 @@ To upload the data we take the list of unique identifiers, assemble the correspo
 
 Early on I had errors such as :
 
-```
+```json
 {"error":{"root_cause":[{"type":"illegal_argument_exception","reason":"Limit of total fields [1000] in index [dna] has been exceeded"}],"type":"illegal_argument_exception","reason":"Limit of total fields [1000] in index [dna] has been exceeded"},"status":400}
 ```
 
